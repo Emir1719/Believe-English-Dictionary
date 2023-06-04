@@ -1,7 +1,9 @@
+import 'package:believe_english_dictionary/locator.dart';
 import 'package:believe_english_dictionary/pages/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  setupLocator();
   runApp(const MainApp());
 }
 
@@ -19,8 +21,9 @@ class MainApp extends StatelessWidget {
           centerTitle: true,
           elevation: 2,
         ),
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: const Home(),
+      home: Home(),
     );
   }
 }
