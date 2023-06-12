@@ -14,4 +14,13 @@ class ProjectStyle {
   var speech = const TextStyle(
     fontSize: 18,
   );
+
+  var definition = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
+  var normal = const TextStyle(
+    fontSize: 14,
+  );
 }

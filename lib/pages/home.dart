@@ -1,5 +1,7 @@
 import 'package:believe_english_dictionary/constant/style.dart';
+import 'package:believe_english_dictionary/widgets/part_of_speech.dart';
 import 'package:believe_english_dictionary/widgets/text_field.dart';
+import 'package:believe_english_dictionary/widgets/word.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/color.dart';
@@ -29,17 +31,23 @@ class Home extends StatelessWidget {
             child: ListView(
               padding: const EdgeInsets.all(15),
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Word(),
+                PartOfSpeech(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Think", style: style.word),
-                    IconButton(onPressed: () {}, icon: Icon(Icons.keyboard_voice_sharp, color: color.icon, size: 30)),
+                    Text("Definition: ", style: style.definition),
+                    const SizedBox(height: 5),
+                    Text("An act of thinking; consideration (of something).", style: style.normal),
                   ],
                 ),
-                Row(
+                const SizedBox(height: 15),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Part Of Speech: ", style: style.speech),
-                    Chip(label: const Text("noun"), backgroundColor: Colors.deepOrange, labelStyle: style.chip),
+                    Text("Examples: ", style: style.definition),
+                    const SizedBox(height: 5),
+                    Text("I'll have a think about that and let you know.", style: style.normal),
                   ],
                 ),
               ],
