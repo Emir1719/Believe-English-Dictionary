@@ -2,8 +2,6 @@
 //
 // final wordModel = wordModelFromJson(jsonString);
 
-//api: https://api.dictionaryapi.dev/api/v2/entries/en/think
-
 import 'dart:convert';
 
 List<WordModel> wordModelFromJson(String str) =>

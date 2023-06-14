@@ -1,5 +1,7 @@
+import 'package:believe_english_dictionary/blocks/word/word_bloc.dart';
 import 'package:believe_english_dictionary/widgets/text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constant/color.dart';
 import '../locator.dart';
@@ -7,15 +9,24 @@ import '../locator.dart';
 class SearchWord extends StatelessWidget {
   SearchWord({super.key});
   final color = locator<ProjectColor>();
+  var controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var wordBloc = BlocProvider.of<WordBloc>(context);
     return Container(
       padding: const EdgeInsets.all(15),
       child: Row(
         children: [
-          Expanded(child: ProjectTextField()),
-          IconButton(onPressed: () {}, icon: Icon(Icons.done, color: color.icon, size: 30)),
+          Expanded(child: ProjectTextField(controller: controller)),
+          IconButton(
+            onPressed: () {
+              if (controller.text.isNotEmpty) {
+                wordBloc.add(FetchWord(word: controller.text));
+              }
+            },
+            icon: Icon(Icons.done, color: color.icon, size: 30),
+          ),
         ],
       ),
     );
