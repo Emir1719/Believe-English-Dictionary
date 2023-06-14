@@ -1,3 +1,3 @@
-# believe_english_dictionary
+# Believe English Dictionary
 
-A new Flutter project.
+Backend olarak bloc ile yaptığım ingilizce - ingilizce çeviren bir sözlük uygulaması.

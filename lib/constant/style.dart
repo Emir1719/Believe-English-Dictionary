@@ -6,7 +6,7 @@ final _color = locator<ProjectColor>();
 
 class ProjectStyle {
   var word = const TextStyle(
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: FontWeight.w600,
   );
 
@@ -25,7 +25,7 @@ class ProjectStyle {
   );
 
   var normal = const TextStyle(
-    fontSize: 14,
+    fontSize: 16,
   );
 
   var textInputDecor = InputDecoration(

@@ -18,7 +18,11 @@ class PartOfSpeech extends StatelessWidget {
         return Row(
           children: [
             Text("Part Of Speech: ", style: style.speech),
-            Chip(label: const Text("noun"), backgroundColor: color.chip, labelStyle: style.chip),
+            Chip(
+              label: Text(loadedState.word.meanings![0].partOfSpeech!),
+              backgroundColor: color.chip,
+              labelStyle: style.chip,
+            ),
           ],
         );
       },
