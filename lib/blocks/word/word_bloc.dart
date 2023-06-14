@@ -16,7 +16,7 @@ class WordBloc extends Bloc<WordEvent, WordState> {
         WordModel word = await repository.getWord(event.word);
         emit(WordLoaded(word: word));
       } catch (e) {
-        WordError(error: e.toString());
+        emit(WordError(error: e.toString()));
       }
     });
   }

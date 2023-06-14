@@ -1,8 +1,10 @@
+import 'package:believe_english_dictionary/blocks/word/word_bloc.dart';
 import 'package:believe_english_dictionary/widgets/part_of_speech.dart';
 import 'package:believe_english_dictionary/widgets/search.dart';
 import 'package:believe_english_dictionary/widgets/statement.dart';
 import 'package:believe_english_dictionary/widgets/word.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -15,13 +17,27 @@ class Home extends StatelessWidget {
         children: [
           SearchWord(),
           Expanded(
-            child: ListView(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-              children: [
-                Word(),
-                PartOfSpeech(),
-                Statement(),
-              ],
+            child: BlocBuilder<WordBloc, WordState>(
+              builder: (context, state) {
+                if (state is WordInitial) {
+                  return const SizedBox();
+                }
+                if (state is WordLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+                if (state is WordLoaded) {
+                  return ListView(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                    children: [
+                      Word(),
+                      PartOfSpeech(),
+                      Statement(),
+                    ],
+                  );
+                } else {
+                  return Center(child: Text((state as WordError).error));
+                }
+              },
             ),
           ),
         ],
