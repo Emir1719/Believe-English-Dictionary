@@ -6,7 +6,7 @@ final _color = locator<ProjectColor>();
 
 class ProjectTheme {
   var theme = ThemeData(
-    primaryColor: _color.red,
+    primarySwatch: Colors.red,
     appBarTheme: AppBarTheme(
       color: _color.red,
       centerTitle: true,

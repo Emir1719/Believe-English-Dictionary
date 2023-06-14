@@ -6,6 +6,8 @@ import 'package:believe_english_dictionary/widgets/word.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../widgets/error.dart';
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -35,7 +37,7 @@ class Home extends StatelessWidget {
                     ],
                   );
                 } else {
-                  return Center(child: Text((state as WordError).error));
+                  return ProjectError(message: (state as WordError).error);
                 }
               },
             ),

@@ -7,4 +7,8 @@ class WordRepository {
   Future<WordModel> getWord(String word) async {
     return await _wordApi.getWord(word);
   }
+
+  String? getAudio(WordModel word) {
+    return _wordApi.getAudio(word);
+  }
 }
