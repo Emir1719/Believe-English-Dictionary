@@ -27,11 +27,7 @@ class Word extends StatelessWidget {
             Text(wordName, style: style.word),
             wordAudio != null
                 ? IconButton(
-                    onPressed: () {
-                      try {
-                        audio.play(UrlSource(wordAudio));
-                      } catch (e) {}
-                    },
+                    onPressed: () => playWord(wordAudio),
                     icon: Icon(Icons.keyboard_voice_sharp, color: color.icon, size: 30),
                   )
                 : const SizedBox()
@@ -39,5 +35,11 @@ class Word extends StatelessWidget {
         );
       },
     );
+  }
+
+  void playWord(String wordAudio) {
+    try {
+      audio.play(UrlSource(wordAudio));
+    } catch (_) {}
   }
 }

@@ -21,20 +21,14 @@ class SearchWord extends StatelessWidget {
           Expanded(
             child: ProjectTextField(
               controller: controller,
-              onFieldSubmitted: (value) {
-                if (value!.isNotEmpty) {
-                  submitWord(wordBloc);
-                }
-              },
+              onFieldSubmitted: (value) => submitWord(wordBloc),
             ),
           ),
           IconButton(
             onPressed: () {
-              if (controller.text.isNotEmpty) {
-                submitWord(wordBloc);
-                //Klavyeyi kapatır:
-                FocusManager.instance.primaryFocus?.unfocus();
-              }
+              submitWord(wordBloc);
+              //Klavyeyi kapatır:
+              FocusManager.instance.primaryFocus?.unfocus();
             },
             icon: Icon(Icons.done, color: color.icon, size: 30),
           ),
@@ -45,6 +39,8 @@ class SearchWord extends StatelessWidget {
 
   ///Kelime ekleme olayını blok yapısına ekler.
   void submitWord(WordBloc wordBloc) {
-    wordBloc.add(FetchWord(word: controller.text));
+    if (controller.text.isNotEmpty) {
+      wordBloc.add(FetchWord(word: controller.text));
+    }
   }
 }
