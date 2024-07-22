@@ -1,31 +1,30 @@
-import 'package:believe_english_dictionary/blocks/word/word_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../constant/color.dart';
 import '../constant/style.dart';
 import '../locator.dart';
 
 class PartOfSpeech extends StatelessWidget {
-  PartOfSpeech({super.key});
+  PartOfSpeech({super.key, required this.label});
   final color = locator<ProjectColor>();
   final style = locator<ProjectStyle>();
+  final String label;
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WordBloc, WordState>(
-      builder: (context, state) {
-        var loadedState = state as WordLoaded;
-        return Row(
-          children: [
-            Text("Part Of Speech: ", style: style.speech),
-            Chip(
-              label: Text(loadedState.word.meanings![0].partOfSpeech!),
-              backgroundColor: color.chip,
-              labelStyle: style.chip,
-            ),
-          ],
-        );
-      },
+    return Row(
+      children: [
+        Text("Part Of Speech: ", style: style.speech),
+        Chip(
+          label: Text(label),
+          backgroundColor: color.chip,
+          labelStyle: style.chip,
+          side: const BorderSide(style: BorderStyle.none),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+          ),
+        ),
+      ],
     );
   }
 }

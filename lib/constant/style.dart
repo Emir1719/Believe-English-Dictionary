@@ -30,7 +30,7 @@ class ProjectStyle {
 
   var textInputDecor = InputDecoration(
     isDense: true, // important line
-    contentPadding: const EdgeInsets.only(top: 15, left: 10, right: 10, bottom: 15),
+    contentPadding: const EdgeInsets.only(top: 18, left: 12, right: 12, bottom: 18),
     hintText: "Search a word",
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(10),

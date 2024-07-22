@@ -3,6 +3,7 @@ import 'package:believe_english_dictionary/blocks/word/word_bloc.dart';
 import 'package:believe_english_dictionary/data/word_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../constant/color.dart';
 import '../constant/style.dart';
 import '../locator.dart';
@@ -21,17 +22,21 @@ class Word extends StatelessWidget {
         var loadedState = state as WordLoaded;
         String wordName = loadedState.word.word!;
         String? wordAudio = repository.getAudio(loadedState.word);
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(wordName, style: style.word),
-            wordAudio != null
-                ? IconButton(
-                    onPressed: () => playWord(wordAudio),
-                    icon: Icon(Icons.keyboard_voice_sharp, color: color.icon, size: 30),
-                  )
-                : const SizedBox()
-          ],
+
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(wordName, style: style.word),
+              wordAudio != null
+                  ? IconButton(
+                      onPressed: () => playWord(wordAudio),
+                      icon: Icon(Icons.keyboard_voice_sharp, color: color.icon, size: 30),
+                    )
+                  : const SizedBox()
+            ],
+          ),
         );
       },
     );

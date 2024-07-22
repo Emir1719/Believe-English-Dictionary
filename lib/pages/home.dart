@@ -3,6 +3,7 @@ import 'package:believe_english_dictionary/pages/word_mean.dart';
 import 'package:believe_english_dictionary/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../widgets/error.dart';
 
 class Home extends StatelessWidget {

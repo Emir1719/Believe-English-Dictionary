@@ -3,6 +3,7 @@ import 'package:believe_english_dictionary/blocks/word/word_bloc.dart';
 import 'package:believe_english_dictionary/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../constant/color.dart';
 import '../locator.dart';
 
@@ -14,6 +15,7 @@ class SearchWord extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var wordBloc = BlocProvider.of<WordBloc>(context);
+
     return Container(
       padding: const EdgeInsets.all(15),
       child: Row(
@@ -24,13 +26,16 @@ class SearchWord extends StatelessWidget {
               onFieldSubmitted: (value) => submitWord(wordBloc),
             ),
           ),
-          IconButton(
-            onPressed: () {
-              submitWord(wordBloc);
-              //Klavyeyi kapatır:
-              FocusManager.instance.primaryFocus?.unfocus();
-            },
-            icon: Icon(Icons.done, color: color.icon, size: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: IconButton(
+              onPressed: () {
+                submitWord(wordBloc);
+                //Klavyeyi kapatır:
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              icon: Icon(Icons.done, color: color.icon, size: 30),
+            ),
           ),
         ],
       ),
